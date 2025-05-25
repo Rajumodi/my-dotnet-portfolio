@@ -1,19 +1,34 @@
 var builder = WebApplication.CreateBuilder(args);
-// ... your services, e.g. builder.Services.AddControllersWithViews();
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Enable default file mapping (index.html, etc.) and static files
-app.UseDefaultFiles();    // Looks for wwwroot/index.html by default
-app.UseStaticFiles();     // Serves files from wwwroot/
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days.
+    app.UseHsts();
+}
 
-// Your existing routing/controllers
+app.UseHttpsRedirection();
+
+// Serve default files (e.g. index.html) and static assets from wwwroot/
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.UseRouting();
+
+app.UseAuthorization();
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}"
 );
 
-// If you need SPA fallback (e.g., for client‐side routing):
+// (Optional) For SPA fallback if you’re hosting a client-side router:
 // app.MapFallbackToFile("index.html");
 
 app.Run();
