@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: my-dotnet-portfolio
+    env: dotnet
+    plan: free
+    buildCommand: dotnet publish -c Release -o out
+    startCommand: dotnet out/Portfolio.dll
+    buildFilter:
+      paths:
+        - "**/*"
+    autoDeploy: true
