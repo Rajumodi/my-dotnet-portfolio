@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Adjust if your layout path is different
+}
+<style>
+    .btn-get-started {
+    display: inline-block;
+    padding: 10px 30px;
+    font-size: 16px;
+    background-color: #00c9ff;
+    color: #fff;
+    border-radius: 25px;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+}
+.btn-get-started:hover {
+    background-color: #1e90ff;
+    color: #fff;
+}
+
+
+<!-- Hero Section </style>
+<section id="hero" class="hero section">
+
+    <img src="~/assets/img/image.png" alt="" data-aos="fade-in" />
+
+    <div class="container text-center" data-aos="zoom-out" data-aos-delay="100">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <h2 class="gradient-name">Raju Modi</h2>
+                <p>I'm a professional full-stack developer based in India.</p>
+                <a asp-controller="About" asp-action="Index" class="btn-get-started">About Me</a>
+            </div>
+        </div>
+    </div>
+   
+</section>

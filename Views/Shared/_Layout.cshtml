@@ -1,0 +1,249 @@
+﻿@{
+   var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Portfolio</title>
+
+    <!-- Favicons -->
+    <link href="~/assets/img/favicon.png" rel="icon" />
+    <link href="~/assets/img/favicon.png" rel="apple-touch-icon" />
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Poppins&family=Raleway&display=swap" rel="stylesheet" />
+
+    <!-- Vendor CSS Files -->
+    <link href="~/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+    <link href="~/assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link href="~/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+    <link href="~/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="~/assets/css/main.css" rel="stylesheet" />
+    <style>
+        @@keyframes gradientSlide {
+            0%
+
+        {
+            background-position: 0% 50%;
+        }
+
+        100% {
+            background-position: 100% 50%;
+        }
+
+        }
+
+        .gradient-name {
+            background: linear-gradient(270deg, #ff416c, #ff4b2b, #1e90ff, #00c9ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientSlide 5s ease infinite;
+        }
+
+    </style>
+</head>
+
+<body class="index-page">
+
+    <!-- Header -->
+    <header id="header" class="header d-flex align-items-center light-background sticky-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+                 <img style="width:200px;"     src="~/assets/img/Dynamic Logo for Raju Modi.png" alt="" data-aos="fade-in" />
+            </a>
+            <nav id="navmenu" class="navmenu">
+                <ul>
+                   <li><a asp-controller="Home" asp-action="Index" class="@(currentController == "Home" && currentAction == "Index" ? "active" : "")">Home</a></li>
+<li><a asp-controller="About" asp-action="Index" class="@(currentController == "about" ? "active" : "")">About</a></li>
+<li><a asp-controller="Resume" asp-action="Index" class="@(currentController == "resume" ? "active" : "")">Resume</a></li>
+<li><a asp-controller="Services" asp-action="Index" class="@(currentController == "services" ? "active" : "")">Services</a></li>
+<li><a asp-controller="Portfolio" asp-action="Index" class="@(currentController == "portfolio" ? "active" : "")">Portfolio</a></li>
+<li><a asp-controller="Contact" asp-action="Index" class="@(currentController == "contact" ? "active" : "")">Contact</a></li>
+
+                </ul>
+                <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+            </nav>
+            <div class="header-social-links">
+                <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+                <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer dark-background">
+        <div class="container">
+            <div class="row g-4">
+                <!-- About Column -->
+                <div class="col-md-4">
+                    <h4 class="footer-heading">Raju Modi</h4>
+                    <p class="footer-text">A passionate .NET developer skilled in jQuery and SSMS, creating meaningful and scalable digital experiences. Let’s build something amazing together!</p>
+                </div>
+
+
+                <!-- Quick Links -->
+                <div class="col-md-2">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links list-unstyled">
+                        <li><a href="#home" class="footer-link" class="footer-link">Home</a></li>
+                        <li><a asp-controller="About" asp-action="Index" class="footer-link">About</a></li>
+                        <li><a asp-controller="Resume" asp-action="Index" class="footer-link">Resume</a></li>
+                        <li><a asp-controller="Contact" asp-action="Index"  class="footer-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Contact</h4>
+                    <ul class="contact-info list-unstyled">
+                        <li class="d-flex align-items-center mb-2">
+                            <i class="bi bi-envelope me-2"></i>
+                            <a href="mailto:hello@raju.com" class="footer-link">rajumodi761@gmail.com</a>
+                        </li>
+                        <li class="d-flex align-items-center mb-2">
+                            <i class="bi bi-phone me-2"></i>
+                            +91 98252 89256
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="bi bi-geo-alt me-2"></i>
+                            Ahmedabad, India
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Links -->
+                <div class="col-md-3">
+                    <h4 class="footer-heading">Connect</h4>
+                    <div class="social-links d-flex gap-3">
+                        <a href="#" class="social-icon twitter" target="_blank" aria-label="Twitter">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+                        <a href="#" class="social-icon github" target="_blank" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="social-icon linkedin" target="_blank" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-icon instagram" target="_blank" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                    </div>
+
+                    <!-- Newsletter Form -->
+                    <div class="newsletter mt-4">
+                        <p class="footer-text mb-2">Get updates on new projects</p>
+                        <form class="d-flex gap-2">
+                            <input type="email" class="form-control" placeholder="Enter your email">
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom mt-5 pt-4 border-top">
+                <div class="row">
+                    <div class="col-md-6 text-md-start text-center mb-3 mb-md-0">
+                        <p class="mb-0">&copy; <span id="year"></span> <strong>Raju</strong>. All Rights Reserved</p>
+                    </div>
+                    <div class="col-md-6 text-md-end text-center">
+                        <p class="mb-0">Designed by <a href="https://bootstrapmade.com/" target="_blank">Raju Modi</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .dark-background {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+
+        .footer-heading {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .footer-link {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+            .footer-link:hover {
+                color: #ffffff;
+            }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: #ffffff;
+            transition: transform 0.3s ease;
+            padding: 0.5rem;
+        }
+
+            .social-icon:hover {
+                transform: translateY(-3px);
+            }
+
+        .newsletter input {
+            background-color: #2a2a2a;
+            border: none;
+            color: #ffffff;
+        }
+
+            .newsletter input::placeholder {
+                color: #cccccc;
+            }
+
+        .border-top {
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+    </style>
+
+    <script>
+        // Auto-update copyright year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="~/assets/vendor/php-email-form/validate.js"></script>
+    <script src="~/assets/vendor/aos/aos.js"></script>
+    <script src="~/assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="~/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="~/assets/js/main.js"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
